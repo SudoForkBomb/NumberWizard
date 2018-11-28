@@ -3,11 +3,13 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class NumberWizard : MonoBehaviour {
+    int max = 1000;
+    int min = 1;
+    int guess = 500;
 
-	// Use this for initialization
-	void Start () {
-        int max = 100;
-        int min = 1;
+    // Use this for initialization
+    void Start () {
+
 
         Debug.Log("Welcome to Number Wizard");
         Debug.Log("Pick a number");
@@ -23,6 +25,20 @@ public class NumberWizard : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.UpArrow)){
             Debug.Log("Up Arrow key is pressed.");
+            min = guess;
+            guess = (max + min) / 2;
+            Debug.Log(guess);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.DownArrow)){
+            Debug.Log("Down Arrow key is pressed.");
+            max = guess;
+            guess = (max + min) / 2;
+            Debug.Log(guess);
+        }
+
+        else if (Input.GetKeyDown(KeyCode.Return)){
+            Debug.Log("You hit Enter.");
         }
 		
 	}
